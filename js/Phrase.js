@@ -11,7 +11,7 @@ class Phrase {
 
     // this adds letter placeholders to the display when the game starts
     addPhraseToDisplay() {
-        const divPhrase = document.querySelector("div #phrase ul")
+        const div = document.querySelector("div #phrase ul")
         console.log("inside", this.phrase)
         
         for(const char of this.phrase) {
@@ -22,7 +22,7 @@ class Phrase {
             li.innerHTML= `<li class="space"> </li>`;
         }
         
-        divPhrase.appendChild(li);
+        div.appendChild(li);
         }
 
     }   

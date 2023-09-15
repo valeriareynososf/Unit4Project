@@ -30,7 +30,7 @@ class Game {
     * Begins game by selecting a random phrase and displaying it to user
     */
     startGame() {
-        const div = document.querySelector("#overlay").style.display = "none"
+        document.querySelector("#overlay").style.display = "none"
         const phrase = this.getRandomPhrase();
         this.activePhrase = phrase
         console.log(this.activePhrase.phrase)

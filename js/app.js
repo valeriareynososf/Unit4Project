@@ -6,9 +6,14 @@
 Create a new instance of the Game class and add event listeners for the start button and onscreen keyboard buttons:
 */}
 
+const game = new Game();
+
+document.querySelector("#btn__reset").addEventListener("click", () => {
+    game.startGame()
+})
 
 //const phrase = new Phrase("I LOVE CHOCOLATE");
-const game = new Game();
+
 
 
 // console.log(phrase.phrase)
@@ -36,6 +41,6 @@ const game = new Game();
 // const phrase = new Phrase(randomPhrase.phrase);
 // phrase.addPhraseToDisplay();
 
-
-game.startGame();
-console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
+//step 7
+// game.startGame();
+// console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
