@@ -11,8 +11,21 @@ class Phrase {
 
     // this adds letter placeholders to the display when the game starts
     addPhraseToDisplay() {
+        const divPhrase = document.querySelector("div #phrase ul")
+        console.log("inside", this.phrase)
+        
+        for(const char of this.phrase) {
+        const li = document.createElement("li");
+        if (char !== " ") {
+            li.innerHTML= `<li class="hide letter ${char}">${char}</li>`;
+        } else {
+            li.innerHTML= `<li class="space"> </li>`;
+        }
+        
+        divPhrase.appendChild(li);
+        }
 
-    }
+    }   
 
     //checks to see if the letter selected by the player matches a letter in the phrase
     checkLetter() {

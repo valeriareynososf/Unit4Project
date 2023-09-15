@@ -7,7 +7,7 @@ Create a new instance of the Game class and add event listeners for the start bu
 */}
 
 
-const phrase = new Phrase("I LOVE CHOCOLATE");
+//const phrase = new Phrase("I LOVE CHOCOLATE");
 const game = new Game();
 
 
@@ -28,3 +28,10 @@ const game = new Game();
 // logPhrase(game.getRandomPhrase());
 // logPhrase(game.getRandomPhrase());
 // logPhrase(game.getRandomPhrase());
+
+//step 6
+// game.getRandomPhrase().addPhraseToDisplay();
+const randomPhrase = game.getRandomPhrase();
+// console.log(randomPhrase.phrase)
+const phrase = new Phrase(randomPhrase.phrase);
+phrase.addPhraseToDisplay();
