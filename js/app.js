@@ -31,7 +31,11 @@ const game = new Game();
 
 //step 6
 // game.getRandomPhrase().addPhraseToDisplay();
-const randomPhrase = game.getRandomPhrase();
+// const randomPhrase = game.getRandomPhrase();
 // console.log(randomPhrase.phrase)
-const phrase = new Phrase(randomPhrase.phrase);
-phrase.addPhraseToDisplay();
+// const phrase = new Phrase(randomPhrase.phrase);
+// phrase.addPhraseToDisplay();
+
+
+game.startGame();
+console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);

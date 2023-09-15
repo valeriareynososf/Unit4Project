@@ -26,10 +26,17 @@ class Game {
         return this.phrases[num]
     }
 
-    // //checks to see if the letter selected by the player matches a letter in the phrase
-    // checkLetter() {
-
-    // }
+    /*
+    * Begins game by selecting a random phrase and displaying it to user
+    */
+    startGame() {
+        const div = document.querySelector("#overlay").style.display = "none"
+        const phrase = this.getRandomPhrase();
+        this.activePhrase = phrase
+        console.log(this.activePhrase.phrase)
+        const phrase1 = new Phrase(this.activePhrase.phrase)
+        phrase1.addPhraseToDisplay() 
+    }
 
     // //reveals the letter(s) on the board that matches the player's selection
     // showMatchedLetter() {
