@@ -12,7 +12,6 @@ class Phrase {
     // this adds letter placeholders to the display when the game starts
     addPhraseToDisplay() {
         const div = document.querySelector("div #phrase ul")
-        console.log("inside", this.phrase)
         
         for(const char of this.phrase) {
         const li = document.createElement("li");
@@ -28,12 +27,19 @@ class Phrase {
     }   
 
     //checks to see if the letter selected by the player matches a letter in the phrase
-    checkLetter() {
-
+    checkLetter(letter) {
+        return this.phrase.includes(letter)
     }
 
     //reveals the letter(s) on the board that matches the player's selection
-    showMatchedLetter() {
+    showMatchedLetter(letter) {
+        // console.log("show if true:", letter)
+        const matchedLetters = document.getElementsByClassName(letter);
+        for (const letter of matchedLetters) {
+            // console.log("letter:", letter)
+            letter.classList.remove('hide');
+            letter.classList.add('show');
+        }
 
     }
 }
