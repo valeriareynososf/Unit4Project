@@ -6,7 +6,25 @@
 Create a new instance of the Game class and add event listeners for the start button and onscreen keyboard buttons:
 */}
 
-const game = new Game("hey");
-const phrase = new Phrase("nooo");
-console.log(game.phrase)
-console.log(phrase.phrase)
+
+const phrase = new Phrase("I LOVE CHOCOLATE");
+const game = new Game();
+
+
+// console.log(phrase.phrase)
+
+// game.phrases.forEach((phrase, index) => {
+//     console.log(`Phrase ${index} - phrase: ${phrase.phrase}`);
+// })
+
+// const logPhrase = (phrase) => {
+//     console.log(`Phrase - phrase: ${phrase.phrase}`)
+// }
+
+
+
+// logPhrase(game.getRandomPhrase());
+// logPhrase(game.getRandomPhrase());
+// logPhrase(game.getRandomPhrase());
+// logPhrase(game.getRandomPhrase());
+// logPhrase(game.getRandomPhrase());

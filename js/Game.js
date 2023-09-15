@@ -5,15 +5,26 @@
 class Game {
     constructor() {
         this.missed = 0;
-        this.phrases = [];
+        this.phrases = [ 
+            { phrase: "Chocolate is delicious" }, 
+            { phrase: "Coding is fun" }, 
+            { phrase: "You are amazing"},
+            { phrase: "Good company and summer nights"},
+            { phrase:  "Life is short, yet sweet."}
+        ];
         this.activePhrase = null;
     };
     //methods
 
-    // this adds letter placeholders to the display when the game starts
-    // addPhraseToDisplay() {
+    /*
+    * Selects random phrase from phrases property
+    * @return {Object} Phrase object chosen to be used
+    */
 
-    // }
+    getRandomPhrase() {
+        const num = Math.floor(Math.random() * 4);
+        return this.phrases[num]
+    }
 
     // //checks to see if the letter selected by the player matches a letter in the phrase
     // checkLetter() {
