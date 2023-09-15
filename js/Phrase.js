@@ -4,7 +4,7 @@
 
 class Phrase {
     constructor(phrase) {
-        this.phrase = phrase //lowercase
+        this.phrase = phrase.toLowerCase();
     };
 
     //methods
