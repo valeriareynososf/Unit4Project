@@ -34,20 +34,22 @@ class Game {
         document.querySelector("#overlay").style.display = "none";
         this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
-        console.log("this.activePhrase", this.activePhrase)
     }
 
 
     handleInteraction( key ) {
-        console.log("clicked letter:", key);
-        //key.disabled = true;
+        key.disabled = true;
         const letter = key.textContent; 
         const isCorrect =  this.activePhrase.checkLetter(letter);
-        console.log("Correct?",isCorrect)
+
         if (isCorrect) {
-            this.activePhrase.showMatchedLetter(letter)
-            if (this.checkForWin()) this.gameOver("win")
+            this.activePhrase.showMatchedLetter(letter);
+            key.classList.add("chosen");
+            if (this.checkForWin()) this.gameOver("win");
+
         } else {
+
+            key.classList.add("wrong")
             this.removeLife()
         }
     }

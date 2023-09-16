@@ -5,18 +5,31 @@
 {/*
 Create a new instance of the Game class and add event listeners for the start button and onscreen keyboard buttons:
 */}
-let keyButtons = document.querySelector("#qwerty").querySelectorAll(".key");
+const keys = document.querySelectorAll(".key");
+
 let game;
-// const game = new Game();
+
+const resetGame = () => {
+    const hearts = document.querySelectorAll(".tries img");
+    hearts.forEach(img => img.src = 'images/liveHeart.png');
+
+    document.querySelector("div #phrase ul").innerHTML = '';
+
+    keys.forEach(key => {
+        key.disabled = false;
+        key.classList.remove("wrong");
+        key.classList.remove("chosen");
+    })
+}
 
 document.querySelector("#btn__reset").addEventListener("click", () => {
+    resetGame()
     game = new Game();
     game.startGame()
 })
 
-keyButtons.forEach( key => {
+keys.forEach( key => {
     key.addEventListener("click", (e) => {
-        console.log("event listener goinig off")
         game.handleInteraction(e.target)
     })
 })

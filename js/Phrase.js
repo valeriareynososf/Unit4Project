@@ -41,10 +41,8 @@ class Phrase {
     */
 
     showMatchedLetter(letter) {
-        // console.log("show if true:", letter)
         const matchedLetters = document.getElementsByClassName(letter);
         for (const letter of matchedLetters) {
-            // console.log("letter:", letter)
             letter.classList.remove('hide');
             letter.classList.add('show');
         }
