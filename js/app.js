@@ -5,16 +5,18 @@
 {/*
 Create a new instance of the Game class and add event listeners for the start button and onscreen keyboard buttons:
 */}
-
-const game = new Game();
+let keyButtons = document.querySelector("#qwerty").querySelectorAll(".key");
+let game;
+// const game = new Game();
 
 document.querySelector("#btn__reset").addEventListener("click", () => {
+    game = new Game();
     game.startGame()
 })
-let keyButtons = document.querySelectorAll("button.key");
 
 keyButtons.forEach( key => {
     key.addEventListener("click", (e) => {
+        console.log("event listener goinig off")
         game.handleInteraction(e.target)
     })
 })

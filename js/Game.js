@@ -10,40 +10,38 @@ class Game {
             new Phrase( "Coding is fun" ), 
             new Phrase( "You are amazing" ),
             new Phrase( "Good company and summer nights" ),
-            new Phrase(  "Life is short, yet sweet." )
+            new Phrase(  "Life is short yet sweet" )
         ];
         this.activePhrase = null;
     };
-    //methods
 
-//     /*
-//     * Selects random phrase from phrases property
-//     * @return {Object} Phrase object chosen to be used
-//     */
+
+    /*
+    * Selects random phrase from phrases property
+    * @return {Object} Phrase object chosen to be used
+    */
 
     getRandomPhrase() {
         const index = Math.floor(Math.random() * this.phrases.length);
         return this.phrases[index]
     }
 
-//     /*
-//     * Begins game by selecting a random phrase and displaying it to user
-//     */
+     /*
+     * Begins game by selecting a random phrase and displaying it to user
+    */
+
     startGame() {
         document.querySelector("#overlay").style.display = "none";
         this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
-        // console.log(this.activePhrase.phrase)
-        // const phrase1 = new Phrase(this.activePhrase.phrase)
-        // phrase1.addPhraseToDisplay() 
         console.log("this.activePhrase", this.activePhrase)
-        this.handleInteraction() 
     }
 
 
     handleInteraction( key ) {
         console.log("clicked letter:", key);
-        const letter = key?.textContent; //Fix KEY!
+        //key.disabled = true;
+        const letter = key.textContent; 
         const isCorrect =  this.activePhrase.checkLetter(letter);
         console.log("Correct?",isCorrect)
         if (isCorrect) {
@@ -54,37 +52,42 @@ class Game {
         }
     }
 
+    /*
+    * Checks for winning move
+    * @return {boolean} True if game has been won, false if game wasn't won
+    */
+
     checkForWin() {
         const hidden = document.querySelectorAll("li.hide");
         return hidden.length === 0;
     }
 
+    /**
+    * Increases the value of the missed property
+    * Removes a life from the scoreboard
+    * Checks if player has remaining lives and ends game if player is out
+    */
+
     removeLife() {
-        if (this.missed === 5) {
-            this.gameOver("lose")
-        } else {
-            const hearts = document.querySelectorAll(".tries img");
-            hearts[this.missed].src = 'images/lostHeart.png'
-            this.missed++
-        }
-        
-        
-        console.log(this.missed)
+        const hearts = document.querySelectorAll(".tries img");
+        hearts[this.missed].src = 'images/lostHeart.png'
+        this.missed++
+
+        if (this.missed === 5) this.gameOver("lose");
     }
-// // `gameOver()`: This method displays the original start screen overlay, and
-// // depending on the outcome of the game, updates the overlay `h1` element with
-// // a friendly win or loss message, and replaces the overlay’s `start` CSS class with
-// // either the `win` or `lose` CSS class.
+
+    /*
+    * Displays game over message
+    * @param {boolean} gameWon - Whether or not the user won the game
+    */
 
     gameOver(result) {
-        console.log("GAME OVER!", result)
         document.querySelector("#overlay").style.display = "block";
         document.querySelector("#overlay").classList.add(result)
+
         const message = result === "win" ? "Congrats! You've Won!" : "Try Again! You've Lost!"
-        console.log("message!", message)
+
         document.querySelector("#game-over-message").textContent = message;
-        //const hearts = document.querySelectorAll(".tries img");
-        //game-over-message
         
     }
 

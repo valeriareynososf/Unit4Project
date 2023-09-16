@@ -26,12 +26,20 @@ class Phrase {
 
     }   
 
-    //checks to see if the letter selected by the player matches a letter in the phrase
+    /*
+    * Checks if passed letter is in phrase
+    * @param (string) letter - Letter to check
+    */
+
     checkLetter(letter) {
         return this.phrase.includes(letter)
     }
 
-    //reveals the letter(s) on the board that matches the player's selection
+    /*
+    * Displays passed letter on screen after a match is found
+    * @param (string) letter - Letter to display
+    */
+
     showMatchedLetter(letter) {
         // console.log("show if true:", letter)
         const matchedLetters = document.getElementsByClassName(letter);
