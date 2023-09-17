@@ -38,10 +38,15 @@ class Game {
 
 
     handleInteraction( key ) {
-        key.disabled = true;
-        const letter = key.textContent; 
-        const isCorrect =  this.activePhrase.checkLetter(letter);
+        const overlay = document.querySelector("#overlay");
+        //prevents further interaction with physical keys if letters were already selected
+        if (key.classList.contains("chosen") || key.classList.contains("wrong") || !overlay.classList.contains("start") ) return;
 
+        key.style.transform = `rotate(360deg)`;
+        key.setAttribute("disabled", "");
+        const letter = key.textContent; 
+      
+        const isCorrect =  this.activePhrase.checkLetter(letter);
         if (isCorrect) {
             this.activePhrase.showMatchedLetter(letter);
             key.classList.add("chosen");
@@ -52,6 +57,7 @@ class Game {
             key.classList.add("wrong")
             this.removeLife()
         }
+        
     }
 
     /*
@@ -84,13 +90,16 @@ class Game {
     */
 
     gameOver(result) {
+        keys.forEach(key => key.style.removeProperty("transform"));
         document.querySelector("#overlay").style.display = "block";
-        document.querySelector("#overlay").classList.add(result)
+        document.querySelector("#overlay").classList.add(result);
+        document.querySelector("#overlay").classList.remove("start");
 
         const message = result === "win" ? "Congrats! You've Won!" : "Try Again! You've Lost!"
 
         document.querySelector("#game-over-message").textContent = message;
-        
+
+      
     }
 
 }
