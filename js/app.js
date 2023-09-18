@@ -10,12 +10,13 @@ const keys = document.querySelectorAll(".key");
 let game;
 
 const resetGame = () => {
-    console.log("reset")
     const hearts = document.querySelectorAll(".tries img");
     hearts.forEach(img => img.src = 'images/liveHeart.png');
 
     document.querySelector("div #phrase ul").innerHTML = '';
     document.querySelector("#overlay").classList.add("start");
+    document.querySelector("#overlay").classList.remove("lose");
+    document.querySelector("#overlay").classList.remove("win");
 
     keys.forEach(key => {
         key.disabled = false;
