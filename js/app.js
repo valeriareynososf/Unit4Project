@@ -32,17 +32,20 @@ document.querySelector("#btn__reset").addEventListener("click", () => {
     game.startGame()
 })
 
-keys.forEach( key => {
+keys.forEach(key => {
     key.addEventListener("click", (e) => {
-        game.handleInteraction(e.target)  
+        game.handleInteraction(e.target)
     })
 })
 
-  //  Allows user to use physical keyboard
-    document.addEventListener('keyup', (e) => {
-    for (const letter of keys) {
-        if (letter.textContent === e.key) game.handleInteraction(letter);
+//  Allows user to use physical keyboard
+document.addEventListener('keyup', (e) => {
+    if (game) {
+        for (const letter of keys) {
+            if (letter.textContent === e.key) game.handleInteraction(letter);
+        }
     }
-    })
 
-  
+})
+
+
